@@ -10,6 +10,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import static org.hamcrest.Matchers.startsWith;
+
 @WebMvcTest(HelloController.class)
 class HelloControllerTest {
 
@@ -21,11 +23,11 @@ class HelloControllerTest {
 
     @Test
     void index() throws Exception {
-        assertEquals("Greetings from Spring Boot + Tanzu! GREEN", controller.index());
+        assertTrue(controller.index().startsWith("Greetings from Spring Boot + Tanzu!"));
 
         mockMvc
             .perform(get("/"))
             .andExpect(status().isOk())
-            .andExpect(content().string("Greetings from Spring Boot + Tanzu! GREEN"));
+            .andExpect(content().string(startsWith("Greetings from Spring Boot + Tanzu!")));
     }
 }
