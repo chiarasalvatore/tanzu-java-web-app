@@ -23,7 +23,7 @@ class HelloControllerTest {
 
     @Test
     void index() throws Exception {
-        assertThat(controller.index(), startsWith("Greetings from Spring Boot + Tanzu!"))
+        assertThat(controller.index(), startsWith("Greetings from Spring Boot + Tanzu!"));
 
         mockMvc
             .perform(get("/"))
