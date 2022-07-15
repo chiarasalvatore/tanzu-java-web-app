@@ -11,6 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 @WebMvcTest(HelloController.class)
 class HelloControllerTest {
